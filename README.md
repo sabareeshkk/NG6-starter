@@ -161,6 +161,14 @@ Running `gulp component --name footer --parent ../common` creates a `footer` com
 
 Because the argument to `--name` applies to the folder name **and** the actual component name, make sure to camelcase the component names.
 
+### Generating services
+Following is the structure of services
+```
+....serviceName/
+......serviceName.service.js/
+```
+Running `gulp service --name footer --parent ../common`
+
 # Starter Kit Support and Questions
 > Contact us, anytime, regarding anything about this project.
 
