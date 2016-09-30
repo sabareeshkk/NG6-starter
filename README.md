@@ -167,7 +167,7 @@ Following is the structure of services
 ....serviceName/
 ......serviceName.service.js/
 ```
-Running `gulp service --name footer --parent ../common`
+Running `gulp service --name serviceName`
 
 # Starter Kit Support and Questions
 > Contact us, anytime, regarding anything about this project.
