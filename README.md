@@ -79,7 +79,7 @@ client
 ⋅⋅⋅⋅⋅⋅⋅⋅home.js * home entry file (routes, configurations, and declarations occur here)
 ⋅⋅⋅⋅⋅⋅⋅⋅home.component.js * home "directive"
 ⋅⋅⋅⋅⋅⋅⋅⋅home.controller.js * home controller
-⋅⋅⋅⋅⋅⋅⋅⋅home.styl * home styles
+⋅⋅⋅⋅⋅⋅⋅⋅home.scss * home styles
 ⋅⋅⋅⋅⋅⋅⋅⋅home.html * home template
 ⋅⋅⋅⋅⋅⋅⋅⋅home.spec.js * home specs (for entry, component, and controller)
 ```
@@ -144,7 +144,7 @@ Following a consistent directory structure between components offers us the cert
 ⋅⋅⋅⋅⋅⋅⋅⋅componentName.component.js
 ⋅⋅⋅⋅⋅⋅⋅⋅componentName.controller.js
 ⋅⋅⋅⋅⋅⋅⋅⋅componentName.html
-⋅⋅⋅⋅⋅⋅⋅⋅componentName.styl // scoped to affect only its own template
+⋅⋅⋅⋅⋅⋅⋅⋅componentName.scss // scoped to affect only its own template
 ⋅⋅⋅⋅⋅⋅⋅⋅componentName.spec.js // contains passing demonstration tests
 ```
 

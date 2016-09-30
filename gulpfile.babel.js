@@ -28,10 +28,14 @@ let resolveToComponents = (glob = '') => {
   return path.join(root, 'app/components', glob); // app/components/{glob}
 };
 
+let resolveToServices = (glob = '') => {
+  return path.join(root, 'app/services', glob); //app/components/{glob}
+};
+
 // map of all paths
 let paths = {
   js: resolveToComponents('**/*!(.spec.js).js'), // exclude spec files
-  styl: resolveToApp('**/*.styl'), // stylesheets
+  styl: resolveToApp('**/*.scss'), // stylesheets
   html: [
     resolveToApp('**/*.html'),
     path.join(root, 'index.html')
@@ -42,6 +46,7 @@ let paths = {
   ],
   output: root,
   blankTemplates: path.join(__dirname, 'generator', 'component/**/*.**'),
+  blankServices: path.join(__dirname, 'generator', 'service/**/*.**'),
   dest: path.join(__dirname, 'dist')
 };
 
@@ -115,6 +120,28 @@ gulp.task('component', () => {
     }))
     .pipe(gulp.dest(destPath));
 });
+
+gulp.task('service', () => {
+  const cap = (val) => {
+    return val.charAt(0).toUpperCase() + val.slice(1);
+  };
+
+  const name = yargs.argv.name;
+  const parentPath = yargs.argv.parent || '';
+  const destPath = path.join(resolveToServices(), parentPath, name);
+  
+  return gulp.src(paths.blankServices)
+      .pipe(template({
+        name: name,
+        upCaseName: cap(name)
+      })) 
+      .pipe(rename((path) => {
+        path.basename = path.basename.replace('temp', name);
+      }))
+      .pipe(gulp.dest(destPath));
+});
+
+
 
 gulp.task('clean', (cb) => {
   del([paths.dest]).then(function (paths) {
